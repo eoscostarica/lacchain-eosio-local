@@ -15,7 +15,6 @@ genesis() {
   sed -i "s/TESTNET_EOSIO_PUBLIC_KEY/$TESTNET_EOSIO_PUBLIC_KEY/" genesis.json
   nodeos \
   --config-dir config \
-  --config config.ini
   --data-dir data \
   --blocks-dir blocks \
   --delete-all-blocks \
@@ -48,28 +47,6 @@ setup_accounts() {
     cleos create account eosio $account $TESTNET_EOSIO_PUBLIC_KEY
   done
 
-echo "Creating writer account..."
-  cleos push action eosio newaccount \
-    '{
-      "creator" : "eosio", 
-      "name" : "writer",
-      "active" : {
-          "threshold":1,
-          "keys":[],
-          "accounts":[{"weight":1, "permission" :{"actor":"eosio", "permission":"active"}}],
-          "waits":[]
-      },
-      "owner" : {
-          "threshold":1,
-          "keys":[],
-          "accounts":[{"weight":1, "permission":{"actor":"eosio", "permission":"active"}}],
-          "waits":[]
-      }
-  }' -p eosio
-
-  # echo 'Set Writer ABI'
-  # cleos set abi writer $WORK_DIR/utils/writer.abi -p writer@owner
-
   lock_wallet
   echo "====================================== Done setup_accounts ======================================"
 }
@@ -85,10 +62,10 @@ setup_contracts() {
     && echo -e "\n"
   sleep 1
   
-  cleos set code eosio ./eosio.contracts.v1.8.x/eosio.system/eosio.system.wasm -j -d -s -x 3600 > trx
+  cleos set code eosio ./eosio.contracts.v1.8.x/eosio.bios/eosio.bios.wasm -j -d -s -x 3600 > trx
   cleos sign trx -k $TESTNET_EOSIO_PRIVATE_KEY -p > trx.output
-  awk 'NR==2' trx.output | tr -d '"' && rm trx trx.output  
-  cleos set abi eosio ./eosio.contracts.v1.8.x/eosio.system/eosio.system.abi -j -d -s -x 3600 > trx
+  awk 'NR==2' trx.output | tr -d '"' && rm trx trx.output
+  cleos set abi eosio ./eosio.contracts.v1.8.x/eosio.bios/eosio.bios.abi -j -d -s -x 3600 > trx
   cleos sign trx -k $TESTNET_EOSIO_PRIVATE_KEY -p > trx.output
   awk 'NR==2' trx.output | tr -d '"' && rm trx trx.output
   sleep 1
@@ -120,15 +97,14 @@ setup_contracts() {
   sleep 1
 
   # Deploy new system contract
-  cleos set code eosio ./eosio.contracts.v2.0.x/eosio.system/eosio.system.wasm -j -d -s -x 3600 > trx
+  cleos set code eosio ./eosio.contracts.v2.0.x/lacchain.system/lacchain.system.wasm -j -d -s -x 3600 > trx
   cleos sign trx -k $TESTNET_EOSIO_PRIVATE_KEY -p > trx.output
   awk 'NR==2' trx.output | tr -d '"' && rm trx trx.output
-  cleos set abi eosio ./eosio.contracts.v2.0.x/eosio.system/eosio.system.abi -j -d -s -x 3600 > trx
+  cleos set abi eosio ./eosio.contracts.v2.0.x/lacchain.system/lacchain.system.abi -j -d -s -x 3600 > trx
   cleos sign trx -k $TESTNET_EOSIO_PRIVATE_KEY -p > trx.output
   awk 'NR==2' trx.output | tr -d '"' && rm trx trx.output
   
   # Deploy eosio.token and eosio.msig contracts
-  cleos set contract eosio ./eosio.contracts.v2.0.x/lacchain.system/
   cleos set contract eosio.token ./eosio.contracts.v2.0.x/eosio.token/
   cleos set contract eosio.msig ./eosio.contracts.v2.0.x/eosio.msig/
   cleos push action eosio setpriv '["eosio.msig", 1]' -p eosio@active
