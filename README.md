@@ -6,9 +6,6 @@
 </p>
 
 <p align="center">
-	<a href="https://git.io/col">
-		<img src="https://img.shields.io/badge/%E2%9C%93-collaborative_etiquette-brightgreen.svg" alt="Collaborative">
-	</a>
 	<a href="#">
 		<img src="https://img.shields.io/dub/l/vibe-d.svg" alt="MIT">
 	</a>
