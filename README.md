@@ -14,7 +14,7 @@
 ## Descripción
 
 ### ¿Qué es LACChain?
-LACChain es la Alianza Global para el desarrollo del ecosistema blockchain en América Latina y el Caribe, una iniciativa liderara por BID Lab (Laboratorio de Innovación del grupo Banco Interamericano de Desarrollo). Su objetivo es acelerar la habilitación y la adopción de la tecnología blockchain para el fomento de la innovación, la reducción de las desigualdades y el impacto en inclusión. Para ello, LACChain se enfoca en dos grandes pilares: comunidad e infraestructura. Además, busca desarrollar y promover interoperabilidad de redes, así como desplegar y mantener infraestructuras blockchain interoperables. LACChain Blockchain Networks, utiliza tecnologías Hyperledger Besu y EOSIO.
+LACChain es la Alianza Global para el desarrollo del ecosistema blockchain en América Latina y el Caribe, una iniciativa liderada por BID Lab (Laboratorio de Innovación del grupo Banco Interamericano de Desarrollo). Su objetivo es acelerar la habilitación y la adopción de la tecnología blockchain para el fomento de la innovación, la reducción de las desigualdades y el impacto en inclusión. Para ello, LACChain se enfoca en dos grandes pilares: comunidad e infraestructura. Además, busca desarrollar y promover interoperabilidad de redes, así como desplegar y mantener infraestructuras blockchain interoperables. LACChain Blockchain Networks, utiliza tecnologías Hyperledger Besu y EOSIO.
 
 ### Contratos
 La imagen de LACChain EOSIO necesita contratos para su configuración inicial:
@@ -52,8 +52,8 @@ Si ejecuta el comando `cleos get info` o accede a `http://127.0.0.1:8888/v1/chai
 ## Empecemos
 Para crear la imagen de Docker de manera local debe ejecutar los siguientes comandos:
 - Clone el repositorio local de LACChain EOSIO `https://github.com/eoscostarica/lacchain-eosio-local.git`
-- Ingrese a la carpeta del respositorio clonado `cd <path/lacchain-eosio-local>`
-- Contruya la imagen del Dockerfile `docker build -t lacchain-eosio-local .`
+- Ingrese a la carpeta del repositorio clonado `cd <path/lacchain-eosio-local>`
+- Construya la imagen del Dockerfile `docker build -t lacchain-eosio-local .`
 - Ejecute la imagen del Dockerfile `docker run -dp 8888:8888 lacchain-eosio-local`
 - Ejecute el comando `cleos get info` o revise en el navegador el enlace `http://127.0.0.1:8888/v1/chain/get_info`
 
@@ -70,7 +70,7 @@ Para este punto, ya tiene la imagen de la red de LACChain EOSIO corriendo de man
 ├── genesis.json ............. Especifica los parámetros del nodo de génesis de la red
 ├── LICENSE .................. Términos y Condiciones
 ├── README.md ................ Especificación del repositorio
-└── start.sh ................. Intrucciones para configurar contratos y características de uso
+└── start.sh ................. Instrucciones para configurar contratos y características de uso
 ```
 
 ## Licencia
