@@ -19,7 +19,7 @@ LACChain es la Alianza Global para el desarrollo del ecosistema blockchain en Am
 ### Contratos
 La imagen de LACChain EOSIO necesita contratos para su configuración inicial:
 1. **eosio.bios**: Proporciona las acciones que son absolutamente críticas para iniciar una cadena.
-2. **lacchain.system**: Brinda las reglas de gobernanza establecidas en la red de LACChain EOSIO. Consultar [este link](https://eosio.lacchain.net/en/docs/eosio/) para más detalle.
+2. **lacchain.system**: Brinda las reglas de gobernanza establecidas en la red de LACChain EOSIO. Consultar [este enlace](https://eosio.lacchain.net/en/docs/eosio/) para más detalle.
 3. **eosio.token**: Define las estructuras y acciones que permiten a los usuarios crear, emitir y administrar tokens para cadenas de bloques basadas en EOSIO.
 4. **eosio.msig**: Permite la creación de transacciones propuestas que requieren la autorización de una lista de cuentas.
 
