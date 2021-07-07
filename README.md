@@ -13,8 +13,9 @@
 
 ## Descripción
 Este proyecto construye la red LACChain en un entorno local de modo que se puedan realizar pruebas antes de ser publicadas en la red pública.
+
 ### ¿Por qué usar un entorno local?
-Tener un entorno local brinda una serie de beneficios que en una red pública no se puede, por ejemplo, con LACChain EOS de manera local se evita costos de transacciones ya que se realizan en un entorno de desarrollo y no de proucción, asimismo, se acceden a los contratos de sistema para modificarlos según convenga.
+Tener un entorno local brinda una serie de beneficios que en una red pública no se puede, por ejemplo, con LACChain EOSIO de manera local se evita costos de transacciones ya que se realizan en un entorno de desarrollo y no de producción, asimismo, se acceden a los contratos de sistema para modificarlos según convenga.
 
 Debido a la tecnología que contiene Blockchain, cualquier cambio en la red crea un registro inmutable de la acción y todo lo que se modifique puede afectar tanto positivamente como negativamente a los usuarios dentro de la misma, es por este motivo que es fundamental tener un entorno local donde se puedan realizar pruebas de funcionalidad, pruebas de rendimiento, pruebas de estrés (stress test), entre otras sin el riesgo de producir alguna falla que afecte a los usuarios.
 
