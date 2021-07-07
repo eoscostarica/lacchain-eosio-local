@@ -22,7 +22,7 @@ Debido a la tecnología que contiene Blockchain, cualquier cambio en la red crea
 Por último, un factor a considerar es el tiempo que se reduce en la configuración inicial de cualquier red, esta imagen permite de manera directa, con solo ejecutar dos comandos poder tener la red instalada y lista para hacer pruebas de funcionalidad según sea necesario.
 
 ### Contratos
-La imagen de LACChain EOSIO usa como base el contrato de `lacchain.system` para su configuración, para ver su contenido en [este enlace](https://github.com/lacchain/eosio.contracts/tree/master/contracts/lacchain.system).
+La imagen de LACChain EOSIO usa como base el contrato de `lacchain.system` para su configuración. Su contenido se encuentre en [este enlace](https://github.com/lacchain/eosio.contracts/tree/master/contracts/lacchain.system).
 
 ### Key de configuración
 La llave preconfigurada es la de eosio que permite realizar la configuración inicial de la red. Puede consultarla [aquí](https://github.com/lacchain/lacchain-eosio-local/blob/main/Dockerfile#L43).
