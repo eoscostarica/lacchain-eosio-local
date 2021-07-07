@@ -31,7 +31,7 @@ EOSIO_PUBLIC_KEY:  EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
 ```
 
 ### ¿Por qué usar un entorno local?
-Este proyecto construye la red LACChain en un entorno local de modo que se puedan realizar pruebas antes de ser publicadas en la red pública. Debido a la technología que contiene Blockchain, al ser publicado o privado cualquier cambio en la red crea un registro inmutable de la acción y todo lo que se modifique puede afectar tanto positivamente como negativamente a los usuarios dentro de la misma, es por este motivo que es fundamental tener un entorno local donde se puedan realizar pruebas de funcionalidad, pruebas de rendimiento, pruebas de estrés (stress test) entre otras sin producir alguna falla que afecte a los usuarios.
+Este proyecto construye la red LACChain en un entorno local de modo que se puedan realizar pruebas antes de ser publicadas en la red pública. Debido a la tecnología que contiene Blockchain, al ser publicado o privado cualquier cambio en la red crea un registro inmutable de la acción y todo lo que se modifique puede afectar tanto positivamente como negativamente a los usuarios dentro de la misma, es por este motivo que es fundamental tener un entorno local donde se puedan realizar pruebas de funcionalidad, pruebas de rendimiento, pruebas de estrés (stress test) entre otras sin producir alguna falla que afecte a los usuarios.
 
 ### Prerrequisitos
 - [Git](https://git-scm.com/)
