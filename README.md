@@ -66,7 +66,7 @@ Para este punto, ya tiene la imagen de la red de LACChain EOSIO corriendo de man
 │   └── workflows
 │       └── publish-docker-image.yml
 ├── config.ini ............... Archivo de configuración de nodeos
-├── Dockerfile ............... Contiene las instrucciones para contruir la imagen de LACChain EOSIO
+├── Dockerfile ............... Contiene las instrucciones para construir la imagen de LACChain EOSIO
 ├── genesis.json ............. Especifica los parámetros del nodo de génesis de la red
 ├── LICENSE .................. Términos y Condiciones
 ├── README.md ................ Especificación del repositorio
