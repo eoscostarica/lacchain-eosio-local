@@ -12,9 +12,13 @@
 </p>
 
 ## Descripción
+Este proyecto construye la red LACChain en un entorno local de modo que se puedan realizar pruebas antes de ser publicadas en la red pública.
+### ¿Por qué usar un entorno local?
+Tener un entorno local brinda una serie de beneficios que en una red pública no se puede, por ejemplo, con LACChain EOS de manera local se evita costos de transacciones ya que se realizan en un entorno de desarrollo y no de proucción, asimismo, se acceden a los contratos de sistema para modificarlos según convenga.
 
-### ¿Qué es LACChain?
-LACChain es la Alianza Global para el desarrollo del ecosistema blockchain en América Latina y el Caribe, una iniciativa liderada por BID Lab (Laboratorio de Innovación del grupo Banco Interamericano de Desarrollo). Su objetivo es acelerar la habilitación y la adopción de la tecnología blockchain para el fomento de la innovación, la reducción de las desigualdades y el impacto en inclusión. Para ello, LACChain se enfoca en dos grandes pilares: comunidad e infraestructura. Además, busca desarrollar y promover interoperabilidad de redes, así como desplegar y mantener infraestructuras blockchain interoperables. LACChain Blockchain Networks, utiliza tecnologías Hyperledger Besu y EOSIO.
+Debido a la tecnología que contiene Blockchain, cualquier cambio en la red crea un registro inmutable de la acción y todo lo que se modifique puede afectar tanto positivamente como negativamente a los usuarios dentro de la misma, es por este motivo que es fundamental tener un entorno local donde se puedan realizar pruebas de funcionalidad, pruebas de rendimiento, pruebas de estrés (stress test), entre otras sin el riesgo de producir alguna falla que afecte a los usuarios.
+
+Por último, un factor a considerar es el tiempo que se reduce en la configuración inicial de cualquier red, esta imagen permite de manera directa, con solo ejecutar dos comandos poder tener la red instalada y lista para hacer pruebas de funcionalidad según sea necesario.
 
 ### Contratos
 La imagen de LACChain EOSIO necesita contratos para su configuración inicial:
@@ -24,19 +28,17 @@ La imagen de LACChain EOSIO necesita contratos para su configuración inicial:
 4. **eosio.msig**: Permite la creación de transacciones propuestas que requieren la autorización de una lista de cuentas.
 
 ### Key de configuración
-La llave preconfigurada es la de eosio que permite realizar la configuración inicial de la red. Puede consultarla [aquí](https://github.com/eoscostarica/lacchain-eosio-local/blob/main/Dockerfile#L43).
+La llave preconfigurada es la de eosio que permite realizar la configuración inicial de la red. Puede consultarla [aquí](https://github.com/lacchain/lacchain-eosio-local/blob/main/Dockerfile#L43).
 ```
 EOSIO_PRIVATE_KEY: 5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
 EOSIO_PUBLIC_KEY:  EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
 ```
 
-### ¿Por qué usar un entorno local?
-Este proyecto construye la red LACChain en un entorno local de modo que se puedan realizar pruebas antes de ser publicadas en la red pública. Debido a la tecnología que contiene Blockchain, al ser publicado o privado cualquier cambio en la red crea un registro inmutable de la acción y todo lo que se modifique puede afectar tanto positivamente como negativamente a los usuarios dentro de la misma, es por este motivo que es fundamental tener un entorno local donde se puedan realizar pruebas de funcionalidad, pruebas de rendimiento, pruebas de estrés (stress test) entre otras sin producir alguna falla que afecte a los usuarios.
-
 ### Prerrequisitos
 - [Git](https://git-scm.com/)
 - [Node.js](https://nodejs.org/en/)
 - [Docker](https://www.docker.com/)
+- [Eosio](https://developers.eos.io/welcome/latest/getting-started-guide/local-development-environment/index)
 
 ## Inicio rápido
 - Descargue la imagen de Docker `docker pull eoscostarica506/lacchain-eosio-local`
@@ -51,7 +53,7 @@ Si ejecuta el comando `cleos get info` o accede a `http://127.0.0.1:8888/v1/chai
 
 ## Empecemos
 Para crear la imagen de Docker de manera local debe ejecutar los siguientes comandos:
-- Clone el repositorio local de LACChain EOSIO `https://github.com/eoscostarica/lacchain-eosio-local.git`
+- Clone el repositorio local de LACChain EOSIO `https://github.com/lacchain/lacchain-eosio-local.git`
 - Ingrese a la carpeta del repositorio clonado `cd <path/lacchain-eosio-local>`
 - Construya la imagen del Dockerfile `docker build -t lacchain-eosio-local .`
 - Ejecute la imagen del Dockerfile `docker run -dp 8888:8888 lacchain-eosio-local`
@@ -87,8 +89,11 @@ Si quiere hacer alguna contribución a este repositorio, por favor siga los sigu
 
 Lea las [pautas de contribución](https://guide.eoscostarica.io/docs/open-source-guidelines/) de código abierto de EOS Costa Rica para obtener más información sobre las convenciones de programación.
 
-Si encuentra algún bug, infórmelo abriendo un issue en [este enlace](https://github.com/eoscostarica/lacchain-eosio-local/issues).
+Si encuentra algún bug, infórmelo abriendo un issue en [este enlace](https://github.com/lacchain/lacchain-eosio-local/issues).
 
+
+## ¿Qué es LACChain?
+LACChain es la Alianza Global para el desarrollo del ecosistema blockchain en América Latina y el Caribe, una iniciativa liderada por BID Lab (Laboratorio de Innovación del grupo Banco Interamericano de Desarrollo). Su objetivo es acelerar la habilitación y la adopción de la tecnología blockchain para el fomento de la innovación, la reducción de las desigualdades y el impacto en inclusión. Para ello, LACChain se enfoca en dos grandes pilares: comunidad e infraestructura. Además, busca desarrollar y promover interoperabilidad de redes, así como desplegar y mantener infraestructuras blockchain interoperables. LACChain Blockchain Networks, utiliza tecnologías Hyperledger Besu y EOSIO.
 
 ## Acerca de EOS Costa Rica
 <div style={{ display: "block", textAlign: "center" }}>
