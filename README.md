@@ -12,7 +12,7 @@
 </p>
 
 ## Descripción
-Este proyecto construye la red LACChain en un entorno local de modo que se puedan realizar pruebas antes de ser publicadas en la red pública.
+Este proyecto construye la red LACChain EOSIO en un entorno local de modo que se puedan realizar pruebas antes de ser publicadas en la red pública.
 
 ### ¿Por qué usar un entorno local?
 Tener un entorno local brinda una serie de beneficios que en una red pública no se puede, por ejemplo, con LACChain EOSIO de manera local se evita costos de transacciones ya que se realizan en un entorno de desarrollo y no de producción, asimismo, se acceden a los contratos de sistema para modificarlos según convenga.
@@ -51,7 +51,7 @@ Si ejecuta el comando `cleos get info` o accede a `http://127.0.0.1:8888/v1/chai
 {"server_version":"e57a1eab","chain_id":"981453d176ddca32aa278ff7b8af9bf4632de00ab49db273db03115705d90c5a","head_block_num":7,"last_irreversible_block_num":6,"last_irreversible_block_id":"00000006ce0e04cb174e797d1f910945d1ba1c82d925c0f0e3721e392e72e37d","head_block_id":"0000000728b21e87b801d17207477c9cc057e1ff7535ce4c4bae5c38d779f531","head_block_time":"2021-07-06T20:42:24.000","head_block_producer":"eosio","virtual_block_cpu_limit":201202,"virtual_block_net_limit":1054885,"block_cpu_limit":199900,"block_net_limit":1048576,"server_version_string":"v2.0.12","fork_db_head_block_num":7,"fork_db_head_block_id":"0000000728b21e87b801d17207477c9cc057e1ff7535ce4c4bae5c38d779f531","server_full_version_string":"v2.0.12-e57a1eab619edffc25afa7eceb05a01ab575c34a"}
 ```
 
-## Empecemos
+## Instrucciones para crear la imagen de LACChain EOSIO localmente
 Para crear la imagen de Docker de manera local debe ejecutar los siguientes comandos:
 - Clone el repositorio local de LACChain EOSIO `https://github.com/lacchain/lacchain-eosio-local.git`
 - Ingrese a la carpeta del repositorio clonado `cd <path/lacchain-eosio-local>`
