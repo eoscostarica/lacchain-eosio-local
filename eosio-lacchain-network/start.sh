@@ -47,6 +47,25 @@ setup_accounts() {
     cleos create account eosio $account $TESTNET_EOSIO_PUBLIC_KEY
   done
 
+  echo "====================================== Creating writer account ======================================"
+  cleos push action eosio newaccount \
+    '{
+      "creator" : "eosio",
+      "name" : "writer",
+      "active" : {
+          "threshold":1,
+          "keys":[],
+          "accounts":[{"weight":1, "permission" :{"actor":"eosio", "permission":"active"}}],
+          "waits":[]
+      },
+      "owner" : {
+          "threshold":1,
+          "keys":[],
+          "accounts":[{"weight":1, "permission":{"actor":"eosio", "permission":"active"}}],
+          "waits":[]
+      }
+  }' -p eosio
+
   lock_wallet
   echo "====================================== Done setup_accounts ======================================"
 }
@@ -108,6 +127,7 @@ setup_contracts() {
   cleos set contract eosio.token ./eosio.contracts.v2.0.x/eosio.token/
   cleos set contract eosio.msig ./eosio.contracts.v2.0.x/eosio.msig/
   cleos push action eosio setpriv '["eosio.msig", 1]' -p eosio@active
+
   lock_wallet
   echo "====================================== Done setup_contracts ======================================"
 }
