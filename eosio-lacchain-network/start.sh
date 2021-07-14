@@ -66,6 +66,9 @@ setup_accounts() {
       }
   }' -p eosio
 
+  echo 'Set Writer ABI'
+  cleos set abi writer $WORK_DIR/writer.abi -p writer@owner
+
   lock_wallet
   echo "====================================== Done setup_accounts ======================================"
 }

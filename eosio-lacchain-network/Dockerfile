@@ -39,13 +39,16 @@ RUN cd /app/eosio.contracts \
 
 
 FROM eosio/eosio:release_2.0.x as nodeos
-WORKDIR /app
+ENV WORK_DIR /app
+WORKDIR $WORK_DIR
+
 ENV TESTNET_EOSIO_PRIVATE_KEY 5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
 ENV TESTNET_EOSIO_PUBLIC_KEY EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
 
 COPY ./start.sh ./
 COPY ./config.ini ./config/
 COPY ./genesis.json ./
+COPY ./utils ./
 COPY --from=eosio.contracts.v1.8.x /app/eosio.contracts/build/contracts ./eosio.contracts.v1.8.x
 COPY --from=eosio.contracts.v2.0.x /app/eosio.contracts/build/contracts ./eosio.contracts.v2.0.x
 

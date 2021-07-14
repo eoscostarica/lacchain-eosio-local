@@ -4,13 +4,13 @@ services:
     container_name: lacchain-network
     build: ./eosio-lacchain-network
     ports:
-      - '8080:8080'
+      - '8888:8888'
 
   writer-middleware:
     container_name: writer-middleware
     build: ./eosio-writer-middleware
     ports:
-      - '8888:8888'
+      - '8080:8080'
     command: bash -c "yarn && yarn watch"
     environment:
       MIDDLEWARE_EOS_API_ENDPOINT: '${MIDDLEWARE_EOS_API_ENDPOINT}'
