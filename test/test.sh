@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+if [ -f ../.env ]; then
+    # Load Environment Variables
+    export $(cat ../.env | grep -v '#' | awk '/=/ {print $1}')
+fi
+
 set_lacchain_permissioning() {
   echo 'Set Writer RAM'
   cleos push action eosio setalimits '["writer", 10485760, 0, 0]' -p eosio
@@ -18,9 +23,8 @@ set_lacchain_permissioning() {
 set_full_partner_entity() {
   echo 'Create BIOS Partner Account'
 
-  keys=($(cleos create key --to-console))
-  pub=${keys[5]}
-  priv=${keys[2]}
+  pub=${MIDDLEWARE_EOS_WRITER_PUB_KEY}
+  priv=${MIDDLEWARE_EOS_WRITER_PRI_KEY}
 
   mkdir -p ./secrets
   echo $priv >./secrets/entity.priv
