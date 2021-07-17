@@ -9,3 +9,7 @@ run:
 	@docker-compose stop
 	@docker-compose up -d --build
 	@docker-compose logs -f
+
+stop: ##@local Stops the development instance
+stop:
+	@docker-compose stop
