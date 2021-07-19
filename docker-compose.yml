@@ -1,0 +1,23 @@
+version: '3.5'
+services:
+  lacchain-network:
+    container_name: lacchain-network
+    build: ./eosio-lacchain-network
+    ports:
+      - '8080:8080'
+
+  writer-middleware:
+    container_name: writer-middleware
+    build: ./eosio-writer-middleware
+    ports:
+      - '8888:8888'
+      
+    command: bash -c "yarn && yarn watch"
+    environment:
+      MIDDLEWARE_EOS_API_ENDPOINT: '${MIDDLEWARE_EOS_API_ENDPOINT}'
+      MIDDLEWARE_EOS_API_CHAIN_ID: '${MIDDLEWARE_EOS_API_CHAIN_ID}'
+      MIDDLEWARE_EOS_WRITER_ACCOUNT_NAME: ${MIDDLEWARE_EOS_WRITER_ACCOUNT_NAME}
+      MIDDLEWARE_EOS_WRITER_PUB_KEY: '${MIDDLEWARE_EOS_WRITER_PUB_KEY}'
+      MIDDLEWARE_EOS_WRITER_PRI_KEY: '${MIDDLEWARE_EOS_WRITER_PRI_KEY}'
+      MIDDLEWARE_SERVER_PORT: '${MIDDLEWARE_SERVER_PORT}'
+      MIDDLEWARE_SERVER_ADDRESS: '${MIDDLEWARE_SERVER_ADDRESS}'
