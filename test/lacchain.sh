@@ -7,17 +7,17 @@ fi
 
 set_lacchain_permissioning() {
   echo 'Set Writer RAM'
-  cleos -u http://127.0.0.1:8080 push action eosio setalimits '["writer", 10485760, 0, 0]' -p eosio
+  cleos push action eosio setalimits '["writer", 10485760, 0, 0]' -p eosio
 
   echo 'Create Network Groups'
-  cleos -u http://127.0.0.1:8080 push action eosio netaddgroup '["v1", ["eosio"]]' -p eosio@active
-  cleos -u http://127.0.0.1:8080 push action eosio netaddgroup '["b1", []]' -p eosio@active
-  cleos -u http://127.0.0.1:8080 push action eosio netaddgroup '["b2", []]' -p eosio@active
-  cleos -u http://127.0.0.1:8080 push action eosio netaddgroup '["w1", []]' -p eosio@active
-  cleos -u http://127.0.0.1:8080 push action eosio netaddgroup '["o1", []]' -p eosio@active
+  cleos push action eosio netaddgroup '["v1", ["eosio"]]' -p eosio@active
+  cleos push action eosio netaddgroup '["b1", []]' -p eosio@active
+  cleos push action eosio netaddgroup '["b2", []]' -p eosio@active
+  cleos push action eosio netaddgroup '["w1", []]' -p eosio@active
+  cleos push action eosio netaddgroup '["o1", []]' -p eosio@active
 
   echo 'Inspect Groups Table'
-  cleos -u http://127.0.0.1:8080 get table eosio eosio netgroup
+  cleos get table eosio eosio netgroup
 }
 
 set_full_partner_entity() {
@@ -30,22 +30,22 @@ set_full_partner_entity() {
   echo $priv >./secrets/entity.priv
   echo $pub >./secrets/entity.pub
 
-  cleos -u http://127.0.0.1:8080 wallet import --private-key $priv
+  cleos wallet import --private-key $priv
 
   echo 'Create Partner Entity'
-  cleos -u http://127.0.0.1:8080 push action eosio addentity '["localdev", 1, '$pub']' -p eosio@active
+  cleos push action eosio addentity '["localdev", 1, '$pub']' -p eosio@active
 
   echo 'Get Partner Entity Account'
-  cleos -u http://127.0.0.1:8080 get account localdev
+  cleos get account localdev
 
   echo 'Set Entity Info'
-  cleos -u http://127.0.0.1:8080 push action eosio setentinfo '{"entity":"localdev", "info": "'$(printf %q $(cat $WORK_DIR/entity-node-info/entity.json | tr -d "\r"))'"}' -p localdev@active
+  cleos push action eosio setentinfo '{"entity":"localdev", "info": "'$(printf %q $(cat $WORK_DIR/entity-node-info/entity.json | tr -d "\r"))'"}' -p localdev@active
 
   echo 'Inspect entity Table'
-  cleos -u http://127.0.0.1:8080 get table eosio eosio entity
+  cleos get table eosio eosio entity
 
   echo 'Register Writer'
-  cleos -u http://127.0.0.1:8080 push action eosio addwriter \
+  cleos push action eosio addwriter \
     '{
 	"name": "localnode",
 	"entity": "localdev",
@@ -61,16 +61,16 @@ set_full_partner_entity() {
   }' -p localdev@active
 
   echo 'Set Writer Node Group'
-  cleos -u http://127.0.0.1:8080 push action eosio netsetgroup '["localnode", ["b1"]]' -p eosio@active
+  cleos push action eosio netsetgroup '["localnode", ["b1"]]' -p eosio@active
 
   echo 'Set Writer Node Info'
-  cleos -u http://127.0.0.1:8080 push action eosio setnodeinfo '{"node":"localnode", "info": "'$(printf %q $(cat $WORK_DIR/entity-node-info/writer.json | tr -d "\r"))'"}' -p localdev@active
+  cleos push action eosio setnodeinfo '{"node":"localnode", "info": "'$(printf %q $(cat $WORK_DIR/entity-node-info/writer.json | tr -d "\r"))'"}' -p localdev@active
 
   echo 'Show writer account'
-  cleos -u http://127.0.0.1:8080 get account writer
+  cleos get account writer
 
   echo 'Check Nodes Table'
-  cleos -u http://127.0.0.1:8080 get table eosio eosio node
+  cleos get table eosio eosio node
 }
 
 
@@ -78,7 +78,7 @@ set_full_partner_entity() {
 create_account() {
     echo 'Call action'
 
-    cleos -u http://127.0.0.1:8080 push action eosio newaccount \
+    cleos push action eosio newaccount \
     '{
       "creator" : "localdev",
       "name" : "someconttest",
@@ -96,7 +96,7 @@ create_account() {
 }
 
 set_ram() {
-    cleos -u http://127.0.0.1:8080 push action eosio setram \
+    cleos push action eosio setram \
     '{
     "entity":"localdev",
     "account":"someconttest",
